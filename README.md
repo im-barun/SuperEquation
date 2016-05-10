@@ -1,0 +1,2 @@
+# SuperEquation
+Hacker rank Challenge
