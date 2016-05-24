@@ -1,0 +1,306 @@
+business & Core values
+See all collection in java  especially this hashtable stuff,stacks,queues
+See linked list problem and its implementation in java
+Get  aware of tree ,postfix,prefix etc and various tree algorithms
+Know about ancestor & cousin in tree,binary trr
+Core java & j2ee fundamentals like oops,inheritance ,threading, finally & final etcc
+Also they may ask to explain OO conceots with examples
+Primitive data types
+While doing algorithms,also look for their time complexcity
+It may contain biographical question
+Read up thoroughly about past projects and especially of one’s contribution towards it. Talking about achievements and success stories when called for, definitely helps.
+One thing that everyone would agree on is that the first two rounds of telephonic interviews are by and large highly technical. The candidate would have to explain the algorithms used to solve the problem. This algorithm, has a computational complexity at a higher level than that of coding. The candidate would also have to justify one’s mathematical knowledge with the answers they give to algebra questions.
+SQL queries
+Create OO design for parking,elevator etc…
+What will you work on? 
+Coding, Data Structures, Solving real world problems, using efficient Algorithms, Code reviews, Design reviews, Mentoring Junior Engineers in the team, Involved in complex problem solving in distributed environment. You will write high quality, maintainable, and robust code. You will recognize and adopt best practices in software engineering: design, testing, version control, documentation, build, deployment, and operations. You will build scalable software systems that are high-performance, highly-available, highly transactional, low latency and massively distributed. You will work on data structures, algorithms, design reviews and solve complex technology problems. 
+If asked any business related questions, the candidate should be prepared well enough and ready to answer it. Read up on and learn about Amazon and its competitor companies as well as about the retail industry, as a whole. This would help the candidate to tackle well the questions related to business.
+It also helps if the candidate is familiar with the website of Amazon. One should also have a comprehensive knowledge of the product categories, postage policies and other added services. Armed with this knowledge, a candidate would for sure perform well even when under duress.
+Ace the Interview:
+1.	Thus, one can conclude that the telephonic interview normally lasting for an hour would include about three problems. The candidate could be asked to write code for the first two problems, one on arrays and second on trees, while for the third the candidate could be asked to solve a problem. In fact, the number of questions asked more often than not depend on how fast it gets solved. In the meantime, the interviewer would help out in discussing the problem as well as the thought process of the candidate. If one is prepared well enough, then the candidate could easily ace the interview and land the job at Amazon.
+
+What impact will you have? 
+As a Software Development Engineer at Amazon, you are a significant and autonomous contributor. You design, develop, and support a world-class platform that manages thousands of search domains across AWS services. You continuously drive to explore, improve, enhance, automate, and optimize distributed systems and tools and build software to best meet evolving business and market needs. You apply scientific analysis and mathematical modeling techniques to predict, measure, and evaluate the consequences of designs and the ongoing success of our platform. You focus on scalability, performance, service robustness, and cost trade-offs. You work in a team and drive things forward. 
+What should be expected in the inteview? 
+Coding, Data Structures, Algorithms, Problem solving, System design, Mentoring skills 
+From Amazon Experiences
+Why amazon??
+Questions from ur resume, college project,ur office work in current comp,describe current work
+Prepare OO Design for real world objects like car,elevator,parking,deck
+Find time required for each algorithm
+http://algorithms.tutorialhorizon.com/print-all-the-nodes-which-are-x-distance-from-the-root/
+Time Complexity: At first look the time complexity looks more than O(n), but if we take a closer look, we can observe that no node is traversed more than twice. Therefore the time complexity is O(n).
+
+http://algorithms.tutorialhorizon.com/find-the-deepest-node-in-a-binary-tree/
+Time Complexity: The function does a simple traversal of the tree, so the complexity is O(n)
+http://algorithms.tutorialhorizon.com/find-if-path-exist-in-binary-tree-with-sumx/
+Time Complexity: O(n)
+http://algorithms.tutorialhorizon.com/check-if-one-binary-is-mirror-tree-of-another-binary-tree/
+Time Complexity: Time worst case complexity of above solution is O(mn) where m and n are number of nodes in given two trees.
+We can solve the above problem in O(n) time. Please refer Check if a binary tree is subtree of another binary tree | Set 2 for O(n) solution.
+
+http://algorithms.tutorialhorizon.com/determine-whether-given-binary-tree-is-binary-search-treebst-or-not/
+Time Complexity: O(n)
+Auxiliary Space : O(1) if Function Call Stack size is not considered, otherwise O(n)
+http://algorithms.tutorialhorizon.com/check-if-two-bsts-are-identical/
+Complexity of the identicalTree() will be according to the tree with lesser number of nodes. Let number of nodes in two trees be m and n then complexity of sameTree() is O(m) where m < n.
+http://algorithms.tutorialhorizon.com/given-a-binary-tree-find-the-maximum-path-sum-between-any-two-leaves/
+Expected time complexity is O(n).
+http://algorithms.tutorialhorizon.com/in-a-binary-tree-create-linked-lists-of-all-the-nodes-at-each-depth/
+Time Complexity: O(n)
+Print All The Nodes Which are X distance from the Root
+Time Complexity: At first look the time complexity looks more than O(n), but if we take a closer look, we can observe that no node is traversed more than twice. Therefore the time complexity is O(n).
+ package PrintNodesAtKDistance;
+
+public class PrintNodesAtKDistance {
+	public void print(Node root, int k) {
+		if (root != null) {
+			if (k == 0) {
+				System.out.print(" " + root.data);
+			}
+			print(root.left, --k);
+			print(root.right, k);
+		}
+	}
+
+	public static void main(String[] args) throws java.lang.Exception {
+		Node root = new Node(1);
+		root.left = new Node(2);
+		root.right = new Node(3);
+		root.left.left = new Node(4);
+		root.left.right = new Node(5);
+		root.left.right.left = new Node(6);
+		root.left.right.right = new Node(7);
+		root.right.right = new Node(8);
+		root.right.right.right = new Node(9);
+		PrintNodesAtKDistance i = new PrintNodesAtKDistance();
+		System.out.println("Nodes at 3 distance from root : ");
+		i.print(root, 3);
+	}
+}
+
+class Node {
+	int data;
+	Node left;
+	Node right;
+
+	public Node(int data) {
+		this.data = data;
+		this.left = null;
+		this.right = null;
+	}
+}
+Difference between Recursion & iteration
+The fact is that recursion is rarely the most efficient approach to solving a problem, and iteration is almost always more efficient. This is because there is usually more overhead associated with making recursive calls due to the fact that the call stack is so heavily used during recursion (for a refresher on this, read here: Recursion tutorial). This means that many computer programming languages will spend more time maintaining the call stack then they will actually performing the necessary calculations.
+Does recursion use more memory than iteration?
+Generally speaking, yes it does. This is because of the extensive use of the call stack.
+Should I use recursion or iteration?
+Recursion is generally used because of the fact that it is simpler to implement, and it is usually more ‘elegant’ than iterative solutions. Remember that anything that’s done in recursion can also be done iteratively, but with recursion there is generally a performance drawback. But, depending on the problem that you are trying to solve, that performance drawback can be very insignificant – in which case it makes sense to use recursion. With recursion, you also get the added benefit that other programmers can more easily understand your code – which is always a good thing to have.
+
+LINKED LIST PROBLEMS:
+Reverse a Linked List
+Link:http://algorithms.tutorialhorizon.com/reverse-a-linked-list/
+Time Complexity: O(n)
+Space Complexity: O(1)
+Merge a Linked list into another Linked List at Alternate Positions.
+Link: http://algorithms.tutorialhorizon.com/merge-a-linked-list-into-another-linked-list-at-alternate-positions/
+Expected time complexity is O(n) where n is number of nodes in first list.
+Reverse The Doubly Linked List
+Link: http://algorithms.tutorialhorizon.com/reverse-the-doubly-linked-list/
+Time Complexity: O(n)
+Be careful with its data structure
+Swap Kth Node from the front with the Kth Node from the End
+Link: http://algorithms.tutorialhorizon.com/swap-kth-node-from-the-front-with-the-kth-node-from-the-end/
+Reverse a Linked List — Part 2
+Link; http://algorithms.tutorialhorizon.com/reverse-a-linked-list-part-2/
+Time Complexity: O(n)
+Space Complexity: O(1)
+Reverse a Linked List in groups of given size ‘K’
+Link: http://algorithms.tutorialhorizon.com/reverse-a-linked-list-in-groups-of-given-size-k/
+Time Complexity: O(n) where n is the number of nodes in the given list.
+Find the Loop in a Linked list, find its length and Break the Loop
+Just see its approach,no need to go through its code
+Link: http://algorithms.tutorialhorizon.com/find-the-loop-in-a-linked-list-find-its-length-and-break-the-loop/
+CHECKING IF 2BINARY TREE IS BALANCED OR NOT
+A binary tree is balanced when the depth (from the root) of the left and right sub trees of every node differs by 11 or less. We can check whether a binary tree is balanced or not using recursion.
+
+< Polynomial time algorithm > 
+
+•	Take the root. Compute the height of its left and right sub tree.
+•	If the difference between height of the left and right sub tree is less than or equal to 11, return true. 
+•	Otherwise, return false.
+•	Repeat these two steps for each node in the given binary tree.
+
+Worst case time complexity for skewed binary tree is O(n2)O(n2). In that case, the height of the tree is θ(n)θ(n) and at each level the height is computed which takes O(n)O(n) time.
+public static boolean checkBinaryTreeIsBalanced(TreeNode root){
+
+     /* Base case - Empty tree is always balanced */
+     if(root == null)
+          return true;
+
+     /* Compute height of the left and right subtree and their difference */
+    int heightDifference = computeHeight(root.left) - computeHeight(root.right);
+
+    if(Math.abs(heightDifference)  < = 1)
+          return checkBinaryTreeIsBalanced(root.left)  & & 
+                 checkBinaryTreeIsBalanced(root.right);
+    else
+          return false;
+    
+ }
+
+public int computeHeight(TreeNode root){
+
+      /* Base case - Tree is empty */
+      if(root == null)
+           return 0;
+      /* Calculate recursively */
+      return Math.max(computeHeight(root.left), computeHeight(root.right)) + 1;
+ }
+Arrays
+Magic find index
+Approach:
+Naive approach is to do the lin¬ear scan and find the magic index in O(n).
+Bet¬ter solu¬tion would Mod¬ify the Binary Search — Time Com¬plex¬ity O(logN).
+•	Check mid = (start+end)/2, with A[mid], check if A[mid] = mid. if yes then return mid.
+•	If mid>A[mid] means fixed point might be on the right half of the array, make a recur-sive call to search(A, mid + 1, end).
+•	If mid<A[mid] means fixed point might be on the left half of the array, make a recur¬sive call to search(A, start, mid — 1)
+See the code at below link
+Link: http://algorithms.tutorialhorizon.com/magic-index-find-index-in-sorted-array-such-that-ai-i/
+FIND 2ND LARGEST ELEMENT in the array
+Link: http://algorithms.tutorialhorizon.com/find-the-second-largest-element-in-an-array/
+TRIPLET SEQUENCE
+Approach:
+Naive Solu¬tion : Brute-Force O(n^2) — Use two for loops and try every triplet till you find the increas¬ing triplet.
+Bet¬ter Solu¬tion : O(n) 
+•	Cre¬ate 2 Aux¬i¬lary Arrays say Lmin[] and Rmax[] of the same size as main array
+•	Put Lmin[0]=0 and Rmax[Rmax.length-1] =Rmax.length-1 
+•	Tra¬verse the main array and fill the Lmin array with the index posi¬tion which has the min-i¬mum value so far
+•	Tra¬verse the main array back¬words and fill the Rmax array with the index posi¬tion which has the max¬imun value so far.
+•	Now Tra¬verse the main array and check for the ele¬ment with the fol¬low¬ing con¬di¬tion and print it.
+arrA[Lmin[i]] < arrA[i] && arrA[Rmax[i]] > arrA[i]
+Link: http://algorithms.tutorialhorizon.com/find-increasing-triplet-sub-sequence/
+TRACK MAX ELEMENT IN STACK
+Objec¬tive: In a Stack, keep track of max¬i¬mum value in it. It might be the top ele¬ment in the stack but once it is poped out, the max¬i¬mum value should be from the rest of the ele¬ments in the stack.
+Approach:
+•	Cre¬ate another another Stack(call it as track) which will keep track of max¬i¬mum in the given Stack(call it as main).
+•	When you insert an ele¬ment in the main stack for the first time ( means it is empty), insert it in the track Stack as well.
+•	Now onwards when you insert a new element(say it is x) in the main Stack, peek() the ele¬ment from the track Stack ( say it is ‘a’). Com¬pare x and a and which ever is greater, insert it into track Stack.
+•	When you pop the ele¬ment from the main stack, pop from the track Stack as well
+•	So to get to know the max¬i¬mum ele¬ment in the main Stack, peek the ele¬ment in the track Stack. . See Exam¬ple below.
+
+Link: http://algorithms.tutorialhorizon.com/track-the-maximum-element-in-a-stack/
+Implement Queue uasing Stacks
+Read its approach
+Link: http://algorithms.tutorialhorizon.com/implement-queue-using-stacks/
+
+DYNAMIC PROGRAMMING
+LONGEST  PALINDROMIC SEQUENCES
+Opti¬mal Substructure:
+Given Sequence A[0….n-1]
+LPS[0….n-1] be the longest palin¬dromic sub¬se¬quence of the given sequence.
+Check the first and the last char¬ac¬ters of the sequence. Now there are two pos¬si¬bil-i¬ties, either both the char¬ac¬ters same or dis¬tinct. We will have to han¬dle both the case.
+	If both char¬ac¬ters are same, add 2 to the result and remove both the char¬ac¬ters and solve the prob¬lem for the remain¬ing subsequence .
+	
+If both char¬ac¬ters are dif¬fer¬ent, then solve the prob¬lem twice, ignore the first char¬ac¬ter (keep the last character)and solve the remain¬ing sub¬se¬quence and then ignore the last char¬ac¬ter (keep the first char¬ac¬ter) and solve it and pick the best out of two results.
+	bottom-up man¬ner   time O(n^2)
+
+
+LPS[i, i]	=	1	Every sin¬gle char¬ac¬ter is a palin¬drome by itself of length 1
+LPS[i, j]	=	2	if j=i+1, sequence has only 2 characters
+LPS[i, j]	=	2 + LPS[i-1, j-1]	If first and last char¬ac¬ters are same
+LPS[i, j]	=	MAX(LPS[i+1,j], LPS[i, j-1])	If first and last char¬ac¬ters are not same
+ 
+char [] chars = A.toCharArray();  //Convery string to character array..
+			int [][]LP = new int[chars.length][chars.length]; 
+			//LP[i][j] - length of palindrome from ith index to jth index
+			// all the characters in the string are palindrome by itself of length 1.
+			//So all LP[i][i] =  1 
+			for(int i=0;i<chars.length;i++){
+				LP[i][i] = 1;			
+			}//in the below code we r taking sublen as the outer length which can vary from 
+      2 to chars.length as done in code
+			for(int sublen = 2;sublen<=chars.length;sublen++){
+				for(int i=0;i<=LP.length-sublen;i++){
+					int j = i+sublen-1;
+					if(chars[i]==chars[j] && sublen==2){
+						LP[i][j] = 2;
+					}
+					else if(chars[i]==chars[j]){
+						LP[i][j] = LP[i+1][j-1]+2;
+					}
+					else{
+						LP[i][j] = Math.max(LP[i+1][j],LP[i][j-1]);
+					}
+				}
+			}
+			printMatrix(LP);
+			return LP[0][LP.length-1];
+Maximum Product Cutting Problem.
+Time Complexity of the Dynamic Programming solution is O(n^2) and it requires O(n) extra space
+Link: http://algorithms.tutorialhorizon.com/dynamic-programming-maximum-product-cutting-problem/ 
+Longest Common Subsequence
+See the style of printing i.e. “DIAGONAL”,”TOP”,”LEFT”
+Time Complexity of the above implementation is O(mn) where m&n are length of two string
+Link:http://algorithms.tutorialhorizon.com/dynamic-programming-longest-common-subsequence/
+Coin Change Problem
+  
+Time Complexity: O(mn) where m is size of coin array & n is the sum
+Link: http://algorithms.tutorialhorizon.com/dynamic-programming-coin-change-problem/
+Minimum Cost Path Problem
+ 
+Time Complexcity is O(mn) where m & n is the row & column of the given matrix
+Link: http://algorithms.tutorialhorizon.com/dynamic-programming-minimum-cost-path-problem/
+Maximum size square sub-matrix with all 1s
+For Given arrA[][], create auxiliary array sub[][].
+Base Cases:
+sub[i][0] = arrA[i][0] i = 0 to row Count // copy the first col¬umn
+sub[0][i] = arrA[0][i] i = 0 to col¬umn Count // copy the first row
+for rest of the cells
+sub[i][j] = 0 if arrA[i][j]=0               = Min(arrA[i-1][j], arrA[i][j-1], arrA[i-1][j-1] )
+At the End, scan the sub[][] and find out the max¬i¬mum entry in it.
+for (int i = 1; i < row; i++) {
+				for (int j = 1; j < cols; j++) {
+					if (arrA[i][j] == 1) {
+						sub[i][j] = Math.min(sub[i - 1][j - 1],
+								Math.min(sub[i][j - 1], sub[i - 1][j])) + 1;
+					} else {
+						sub[i][j] = 0;
+					}
+				}
+			}
+Time Complexity: O(m*n) where m is number of rows and n is number of columns in the given matrix
+Link: http://algorithms.tutorialhorizon.com/dynamic-programming-maximum-size-square-sub-matrix-with-all-1s/
+
+subset-sum-problem 
+
+Link: http://algorithms.tutorialhorizon.com/dynamic-programming-subset-sum-problem/
+
+longest-increasing-subsequence(Geeksforgeeks)
+Let arr[0..n-1] be the input array and L(i) be the length of the LIS till index i such that arr[i] is part of LIS and arr[i] is the last element in LIS, then L(i) can be recursively written as.
+L(i) = { 1 + Max ( L(j) ) } where j < i and arr[j] < arr[i] and if there is no such j then L(i) = 1
+To get LIS of a given array, we need to return max(L(i)) where 0 < i < n
+Link: http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/
+
+Difference between TOP-DOWN & BOTTOM-UP
+
+Top down is married to "Recursion overhead" and 'calls' his wife again and again to do a task, but Bottom-up is single, performs a task without calling anyone and hence is more efficient
+•	Memoization often starts at the top, defines itself recursively (assuming the work is already done), and caches results so duplicate sub-trees are not recomputed.
+o	example: If you are calculating the Fibonacci sequence fib(100), you would just call this, and it would call fib(100)=fib(99)+fib(98), which would call fib(99)=fib(98)+fib(97), ...etc..., which would call fib(2)=fib(1)+fib(0)=1+0=1. Then it would finally resolve fib(3)=fib(2)+fib(1), but it doesn't need to recalculate fib(2), because we cached it.
+•	With dynamic programming, you work from the leaves back to the root at the top, picking an order.
+o	example: If doing fibonacci, you choose to calculate the numbers in this order: fib(2),fib(3),fib(4)... you then cache the values. You can also think of it as filling up a table (another form of caching).
+
+Print All Possible Valid Combinations Of Parenthesis of Given ‘N’
+Approach:
+	Recur¬sion is the key here.
+	Divide the N into N/2 and N/2 (Count for open and closed parentheses ).
+	Select the open paren¬the¬ses, add it to the result string and reduce its count and make a recur¬sive call.
+	Select the close paren¬the¬ses, add it to the result string and reduce its count and make a recur¬sive call.
+	To print only valid paren¬the¬ses, make sure at any given point of time, close paren¬the¬ses count is not less that open paren¬the¬ses count because it means close paren¬the¬ses has been printed with its respec¬tive open parentheses. E.g {{{…… ,{{{}{{{}….can be possible but }}}}}{{….,{{}}} etc not possible 
+	See pic¬ture for bet¬ter explanation.
+
+
+
+
+
+
