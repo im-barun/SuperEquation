@@ -1,0 +1,974 @@
+LONGEST PALINDROMIC SEQUENCE
+Palindrome(Finding maximum length of palindrome in a string starting from I and ending with j)
+let dp(i, j), i <= j be the longest palindromic subsequence you can find in the interval S[i...j] then you can state that: 
+●	dp(i, j) = 1 if i and j are the same
+●	dp(i, j) = 2 + dp (i + 1, j - 1) if first and last characters are equal.
+●	dp(i, j) = max(dp(i, j - 1), dp(i + 1, j)) otherwise 
+
+let dp(i, j) the longest palindromic subsequence you can find within the interval of length i, which starts at position j (the reader is encouraged to check that there is a bijection between the 2 recurrences), then: 
+●	dp(i, j) = 1 if i is 1
+●	dp(i, j) = 2 + dp (i - 2, j + 1) if first and last characters are equal.
+●	dp(i, j) = max(dp(i - 1, j), dp(i - 1, j + 1)) otherwise
+
+PROBLEM BASED ON ABOVE CONCEPT
+PLAY WITH WORDS(Dyn Prgmng)
+Link: https://www.hackerrank.com/challenges/strplay
+Editorial: https://www.hackerrank.com/challenges/strplay/editorial
+Expltn(May or may not understand): they have used dp(i,j) concept where I is the interval length and j is the starting point in string.suppose we have a 8 letter string, we start from st[0](given string) and lenth 2,3,4 and so on.suppose we find palindrome sub-sequence from st[0] to st[2](i.e. of length 3) and now again we will find another sub-sequence starting at length st[3] and we try to find of maximum length
+And hence we keep on iterating
+
+yet another palindrome (index) concept
+You are given a string such that removing any one of the characters from it makes it a palindrome.
+There are two cases here,
+If the given string is already a palindrome, -1 is the accepted answer. Also, the index of the middle character is accepted in case of an odd length palindrome. The index of any of the two middle characters is accepted in case of an even length palindrome.
+If the given string however is not a palindrome, from the problem statement we know that on removal of a character from the string, it will turn into a palindrome. One can do so by checking if str[i] == str[N - 1 - i] where N is the length of the string for all i starting from i = 0. Once this condition fails, all we have to do is to check if
+str[0:i-1] + str[i+1:N-1] is a palindrome and print i if it is so, otherwise print N - i - 1.
+For strings such as bcbc, both 0 and 3 are accepted answers.
+
+
+Reprenting graph
+
+http://www.geeksforgeeks.org/graph-and-its-representations/
+
+here two ways of graph representation have been shown.
+
+Bellman-Ford Algorithm
+It is used to find shortest path from a given source to all the paths
+
+
+Maximum Flow through a graph
+Ford-Fulkerson algorithm is used to find the maximum flow through a graph.
+Youtube video: http://www.youtube.com/watch?v=-8MwfgB-lyM
+Refer geeksforgeek for coding
+DEPTH FIRST SEARCH
+ 
+ a DFS of the above graph is “5 2 3 1 0 4″, 
+we should not think that 4 is not reachable from 5 then it is not come in dfs ordering starting from 5.
+
+NOTE: we cannot define another function inside main function without the use of comparator class (present only in java 8)
+NOTE: if we initialize the array in java then it automatically gets initialized to zero itself.
+
+We can find subset of an array by using bits component.
+For eg:
+consider array={1,2,3}, now it can have following subset i.e. 1,2,3,12,13,23,123 i.e. 2^n(length of array)-1
+thus find all the bit combination upto length 7 i.e. 000 001 010 011 100 101 110 111 (note that here we are ignoring null set)
+now corresponding to bit position we can refer in the original array and find all subsets. We will be considering index of 1’s only and then corresponding 1;s index position from original array  i.e
+000     001     010     011     100     101     110     111
+Null       1          2         21     3         3  1     32       321
+Program to convert decimal to binary number
+http://www.sanfoundry.com/java-program-implement-convert-decimal-to-binary-using-stacks/
+
+if we want to sort arraylist then convert it into array first then apply sort method on the resulted array 
+
+HOW to add character alphabeticaaly to a string or array
+public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int m=sc.nextInt();
+		ArrayList<Character> ca=new ArrayList<Character>();
+		char letter='A';
+		ca.add(letter);
+		char next='A';
+		while(m>1)
+		{
+			next = (char)(((int) next) + 1);
+			//System.out.print("FRT");
+			ca.add(next);
+			m--;
+		}
+		for(Character ch: ca)
+			System.out.print(ch);
+		//for(int i=1;i<=m;i++)
+			//System.out.print(ca.get(i));
+
+	}
+Note:since here arraylist contains characters so we cannot print this arraylist same as we print with integers
+for(int i=1;i<=m;i++)
+System.out.print(ca.get(i));
+
+Instead it has to be printed like this
+
+for(Character ch: ca)
+System.out.print(ch);
+
+
+Reading a double== sc.nextDouble();
+
+Nth POWeR
+
+2^n will not give nth power, 
+Instead
+Math.pow(double a,double b) will calculate nth power of 2
+
+DEALING with STRINGS- use STRINGBUILDER
+It comes with very many powerful operations  
+
+CONTINUE : we can use this continue wordto refer to a label or to any given line or part of a program.
+for e:g
+
+public static void main(String[] args) throws Exception {
+   	 Scanner in = new Scanner(System.in);
+   	 int N = in.nextInt();
+   	 testCase:
+   	 for(int i = 0; i < N; i++) {
+   		 for()
+{
+//some code
+}   		Continue testcase }
+
+CONVERTING CHAR value to DECIMAL value
+ 
+Character c1=new Character('a');
+        	int index=c1-'\0';
+        	System.out.println(index);
+OUTPUT
+97                      CHAR  to  Decimal conversion and value 
+ 
+SORTING
+have a look on all the sorting algorithms before interview
+SIGNED & UNSIGNED DIFFERENCE
+Signed variables, such as signed integers will allow you to represent numbers both in the positive and negative ranges.
+Unsigned variables, such as unsigned integers, will only allow you to represent numbers in the positive.
+Unsigned and signed variables of the same type (such as int and byte) both have the same range (range of 65,536 and 256 numbers, respectively), but unsigned can represent a larger magnitude number than the corresponding signed variable.
+For example, an unsigned byte can represent values from 0 to 255, while signed byte can represent -128 to 127.
+ALGORITHM LEARNING TRICK
+we can learn algorithm by remembering its example,for e.g just now i have learn algorithm of converting decimal number to binary number just by example
+STARS(https://www.hackerrank.com/challenges/stars)
+SOLn: (https://codepair.hackerrank.com/paper/w3bEUp9v?b=eyJyb2xlIjoiY2FuZGlkYXRlIiwibmFtZSI6ImJoYWNrZXIxMjMiLCJlbWFpbCI6ImdvbHVyYWphbjk0OTVAZ21haWwuY29tIn0%3D)
+here, for every two points there will be a line , now for this line calcualte the weights(W1 & W2) of points and later on and now we can add two points weights(Which we have considered for making a line ), we have following possibilities:
+pair1=w1+imax+imin & W2
+pair2=W2+imax+imin & W1
+pair3=W1+imax  & W2+imin
+pair4=W1+imin & W2+max
+
+CALCULATE POLAR ANGLE(OR ANGLE) of a POINT
+public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		double x2=sc.nextInt();
+		double y2=sc.nextInt();
+		double delta_x = x2;
+		double delta_y = y2;
+		double theta_radians = Math.atan2(delta_y, delta_x);
+		System.out.println(Math.toDegrees(theta_radians));
+  here we can calculate the radians value of the angle also by Math.toRadians
+SORTING HASHMAP by KEY and VALUE
+(http://beginnersbook.com/2013/12/how-to-sort-hashmap-in-java-by-keys-and-values/)
+Sorting by KEYS
+ublic class Details {
+
+    public static void main(String[] args) {
+
+         HashMap<Integer, String> hmap = new HashMap<Integer, String>();
+         hmap.put(5, "A");
+         hmap.put(11, "C");
+         hmap.put(4, "Z");
+         hmap.put(77, "Y");
+         hmap.put(9, "P");
+         hmap.put(66, "Q");
+         hmap.put(0, "R");
+
+         System.out.println("Before Sorting:");
+         Set set = hmap.entrySet();
+         Iterator iterator = set.iterator();
+         while(iterator.hasNext()) {
+               Map.Entry me = (Map.Entry)iterator.next();
+               System.out.print(me.getKey() + ": ");
+               System.out.println(me.getValue());
+         }
+         Map<Integer, String> map = new TreeMap<Integer, String>(hmap); 
+         System.out.println("After Sorting:");
+         Set set2 = map.entrySet();
+         Iterator iterator2 = set2.iterator();
+         while(iterator2.hasNext()) {
+              Map.Entry me2 = (Map.Entry)iterator2.next();
+              System.out.print(me2.getKey() + ": ");
+              System.out.println(me2.getValue());
+         }
+    }
+}
+Sorting by Values
+public class HMapSortingByvalues {
+  public static void main(String[] args) {
+      HashMap<Integer, String> hmap = new HashMap<Integer, String>();
+      hmap.put(5, "A");
+      hmap.put(11, "C");
+      hmap.put(4, "Z");
+      hmap.put(77, "Y");
+      hmap.put(9, "P");
+      hmap.put(66, "Q");
+      hmap.put(0, "R");
+      System.out.println("Before Sorting:");
+      Set set = hmap.entrySet();
+      Iterator iterator = set.iterator();
+      while(iterator.hasNext()) {
+           Map.Entry me = (Map.Entry)iterator.next();
+           System.out.print(me.getKey() + ": ");
+           System.out.println(me.getValue());
+      }
+      Map<Integer, String> map = sortByValues(hmap); 
+      System.out.println("After Sorting:");
+      Set set2 = map.entrySet();
+      Iterator iterator2 = set2.iterator();
+      while(iterator2.hasNext()) {
+           Map.Entry me2 = (Map.Entry)iterator2.next();
+           System.out.print(me2.getKey() + ": ");
+           System.out.println(me2.getValue());
+      }
+  }
+
+  private static HashMap sortByValues(HashMap map) { 
+       List list = new LinkedList(map.entrySet());
+       // Defined Custom Comparator here
+       Collections.sort(list, new Comparator() {
+            public int compare(Object o1, Object o2) {
+               return ((Comparable) ((Map.Entry) (o1)).getValue())
+                  .compareTo(((Map.Entry) (o2)).getValue());
+            }
+       });
+
+       // Here I am copying the sorted list in HashMap
+       // using LinkedHashMap to preserve the insertion order
+       HashMap sortedHashMap = new LinkedHashMap();
+       for (Iterator it = list.iterator(); it.hasNext();) {
+              Map.Entry entry = (Map.Entry) it.next();
+              sortedHashMap.put(entry.getKey(), entry.getValue());
+       } 
+       return sortedHashMap;
+  }
+}
+NOTE
+on using arrays.copyofRange(int a[],int b,int c);    that the resulted array will get shortern depanding on the elements which get copied.for e.g
+a[]={1,2,3,4,5,6,7,8,9} and int[] b=new int[a.length](i.e initially we are assigning length of b as same as a[] which is 9) and after applying operation b=Arrays.copyOfRange(int a[],2,5)  length of b will reduces to 3 only and b={2,3,4}
+NOTE 
+consider String[] str1={1,2,3,4,5,6,7,8,9} and String[] str2=str1.split(“”) then after splitting it will store str2 as follows str2={   ,1,2,3,4,5,6,7,8,9} i.e str[0] will be SPACE  and it will consist of 10 elements not 9 elements    
+NOTE
+Consider this problem:
+Given an array(let say A) of size n initialized to zero. In this array only two operations can be performed
+1.	update x
+2.	summation i j
+using fenwick tree both of these operation be done in O(logn) time.
+
+Suppose if a=4( its binary is 0100) and b=6(0110) then 
+operation a&b= 4(we will apply & operation on 0100 and 0110)
+
+SPHERES and Their velocity/accelaeration problem
+https://www.hackerrank.com/challenges/spheres
+
+NOTE: if we want to escape from a function then use return 0(or the thing required)
+
+Math.ceil()- it returns the nearest integer which is just greater than the given float
+NOTE: directly converting string to array of integers
+String str=123456789;
+ArrayList a
+a.add(Integer.parseInt(String.valueOf(str.charAt(i))))
+Finding all subset of a set with a given sum(it can also take duplicate numbers and there is no need to sort the arrays)
+output:Enter the number of elements:4
+Enter 4 Elements :
+6 1 2 3
+Enter the sum to be obtained: 
+9
+
+6 1 2 
+6 3 
+
+
+import java.util.Scanner;
+public class Prinkya_Toys {
+
+    int[] w;
+    int[] x;
+    int sum;
+    public void process() {
+        getData();
+    }
+
+    private void getData() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of elements:");
+        int n = sc.nextInt();
+        w = new int[n + 1];
+        x = new int[n + 1];
+        int total = 0;
+        System.out.println("Enter " + n + " Elements :");
+        for (int i = 1; i < n + 1; i++) {
+            w[i] = sc.nextInt();
+            total += w[i];
+        }
+        System.out.println("Enter the sum to be obtained: ");
+        sum = sc.nextInt();
+        if (total < sum) {
+            System.out.println("Not possible to obtain the subset!!!");
+            System.exit(1);
+        }
+        subset(0, 1, total);
+    }
+
+    private void subset(int s, int k, int r) {
+        int i = 0;
+        x[k] = 1;
+        if (s + w[k] == sum) {
+            System.out.println();
+            for (i = 1; i <= k; i++) {
+            	if(x[i]==1)
+                System.out.print( w[i]+" ");
+            }
+        } else if ((s + w[k] + w[k + 1]) <= sum) {
+            subset(s + w[k], k + 1, r - w[k]);
+        }
+        if ((s + r - w[k]) >= sum && (s + w[k + 1]) <= sum) {
+            x[k] = 0;
+            subset(s, k + 1, r - w[k]);
+        }
+    }
+
+    public static void main(String[] args) {
+        new Prinkya_Toys().process();
+    }
+}
+
+We can represent graph in two ways
+1.	Adjaency matrix
+2.	Adjaency List
+We now see that depending of the representation of the graph we can have different complexities for the same operations. This is very important while trying to solve a problem and can be crucial while chosing the algorithm.
+ In case that we’re using adjacency matrix we have:
+1.	Adding an edge – O(1);
+2.	Deleting an edge – O(1);
+3.	Answering the question “is there an edge between i and j” – O(1);
+4.	Finding the successors of a given vertex – O(n);
+5.	Finding (if exists) a path between two vertices – O(n2);
+While for an adjacency list we can have:
+1.	Adding an edge – O(log(n));
+2.	Deleting an edge – O(log(n));
+3.	Answering the question “is there an edge between i and j” – O(log(n));
+4.	Finding the successors of a given vertex – O(k), where “k” is the length of the lists containing the successors of i;
+5.	Finding (if exists) a path between two vertices – O(n+m) – where m <= n;
+Framework for Graph Problem in java- JUNG(Please have a look to it)
+  Dijikstra Algorithm
+kindly go to below link for code 
+http://www.sanfoundry.com/java-program-implement-dijkstras-algorithm-using-set/                                                
+CLIQUE GRAPH PROBLEM
+A clique in a graph is set of nodes such that there is an edge between any two distinct nodes in the set.However, you wonder what is the minimum size of the largest clique in any graph with N nodes and M edges.the below code will give minimum size of largest clique as stated above
+https://codepair.hackerrank.com/paper/RRWrTCuS?b=eyJyb2xlIjoiY2FuZGlkYXRlIiwibmFtZSI6ImJoYWNrZXIxMjMiLCJlbWFpbCI6ImdvbHVyYWphbjk0OTVAZ21haWwuY29tIn0%3D
+length of Longest integer sequence
+i/p-5(no of elements), 2 7 4 3 8
+https://www.hackerrank.com/challenges/longest-increasing-subsequent/submissions/code/11549504
+finding all the permutations of a given string
+http://www.programmerinterview.com/index.php/recursion/permutations-of-a-string/
+remember StringBuilder beat string in big files, but it is worth to read: http://stackoverflow.com/questions/8793762/what-is-the-fastest-way-to-iterate-through-individual-characters-in-a-string-in
+HOW TO SORT a GIVEN STRING
+str = in.next();
+ char c[]=str.toCharArray();
+	            Arrays.sort(c);
+	            str=new String(c);
+NEXT LEXIGRAPHICALLY/PERMUTATION STRING or NUMBER
+ http://www.nayuki.io/page/next-lexicographical-permutation-algorithm
+https://www.hackerrank.com/challenges/bigger-is-greater/editorial
+ADDING TWO OBJECT
+http://stackoverflow.com/questions/14525687/how-to-call-addition-operator-on-two-objects
+visit the page otherwise i will not be able to understand it
+public Object add(Object op1, Object op2){ if( op1 instanceof String || op2 instanceof String){ return String.valueOf(op1) + String.valueOf(op2); } if( !(op1 instanceof Number) || !(op2 instanceof Number) ){ throw new Exception(“invalid operands for mathematical operator [+]”); } if(op1 instanceof Double || op2 instanceof Double){ return ((Number)op1).doubleValue() + ((Number)op2).doubleValue(); } if(op1 instanceof Float || op2 instanceof Float){ return ((Number)op1).floatValue() + ((Number)op2).floatValue(); } if(op1 instanceof Long || op2 instanceof Long){ return ((Number)op1).longValue() + ((Number)op2).longValue(); } return ((Number)op1).intValue() + ((Number)op2).intValue(); }
+NOTE  double and Double are different things.
+TYPE CASTING( conversion of one data type to other)
+  
+Automatic Type casting take place when,
+●	the two types are compatible
+●	the target type is larger than the source type
+http://www.studytonight.com/java/type-casting-in-java(PLZZZ SEE EXAMPLE)
+ 
+PERFORMING EXACT DIVISION IN JAVA
+int n=sc.nextInt();=56
+		int x=sc.nextInt();=3
+		int a=n/x;
+		double b=(double)n/x;
+		System.out.println(a+" "+b);
+OUTPUT       18    18.666666668
+Exponetiation by squaring
+ 
+ROUND OFF TO 2 DECIMAL PLACES
+double roundOff = Math.round(a * 100.0) / 100.0;
+
+SUM of all subarrays of a ARRAY(Pattern)
+eg arr={1,2,3} then ans =123+12+13+23+1+2+3=147
+https://www.hackerrank.com/challenges/manasa-and-sub-sequences/editorial
+
+http://www.quora.com/Do-top-ranked-top-100-coders-on-sites-like-TopCoder-or-in-programming-competitions-like-ACM-ICPC-Google-Code-Jam-or-Facebook-Hacker-Cup-find-it-easy-to-get-a-high-paying-job-at-companies-like-Google-Facebook-etc
+
+Application of lucas theorm:
+what is lucas theorm(http://en.wikipedia.org/wiki/Lucas%27_theorem)
+and its problem
+https://www.hackerrank.com/challenges/binomial-coefficients
+finding number of Binary Search Tree(BST) with n unique nodes(Algrthm-catalan numbers)
+https://www.hackerrank.com/challenges/lucy-and-flowers/editorial
+BINARY SEARCH TREE
+In Binary search tree we can do following operations
+  
+a classic problm on string properties
+https://www.hackerrank.com/challenges/fraud-prevention/submissions
+a interesting problem(divide & conquer)((PATTERN)
+https://www.hackerrank.com/challenges/akhil-and-gf/editorial
+given a set of number from 1 to N(both elements exclusive)
+then the number of elements having remainder i when divided by k in the above set is given by------ refor to the below link for actual problem
+arr[0] = N/K;
+        for(i=1 ; i< K ; i++)
+            arr[i] = (int)(N-i)/K + 1;
+https://www.hackerrank.com/challenges/help-mike
+NOTE:
+suppose an array is given then we have to print out of all the subset formed raised to the power of 2 i.e.A={1,1,2}
+  
+see editorial https://www.hackerrank.com/challenges/shashank-and-list/editorial
+here longpow() function is just used to find the value of 2^somevalue so dont get confused with that
+
+
+Modulo of very large number 
+In java we can find it by using concept of biginteger  whereas in c/c++  refer to below notes https://www.hackerearth.com/notes/get-the-modulo-of-a-very-large-number-that-cannot-be-stored-in-any-data-type-in-cc-1/ 
+Kevin and Expected Value (Pattern and mathematical derivtn)
+See expected value problem(on probability-kevin and number) from under Probability-medium level.here expected value is calculated as the summation series.
+
+Palindromes(PALINDROME AND EXPECTED VALUE:)(pattern&Derivation based,not able to understand)
+Here we have to find expected value of reversing a number until we get it palindrome.there is a special formula which we have used it here.kindly make note of that. And see its editorial as well. https://www.hackerrank.com/challenges/palindromes 
+
+SAM  AND  SUBSTRING
+Here we r using generalization to find the sum of all sub-strings of a number i.e.
+Eg: for number   123 we have following substring 1  12  123  2 23 so its sum is 1+12+123+2+23
+https://www.hackerrank.com/challenges/sam-and-substrings/editorial
+So we have following formula 
+sd[i+1] = (i + 2) * N[i] + 10 * sd[i]
+sd[0] = N[0]
+
+COINAGE 
+Plz see discussion : especially of jaishankar singh of having 2 or 3 loops
+
+Plz see code at: https://www.hackerrank.com/challenges/coinage/submissions/code/12314114
+
+Volleyball problem (combinatorics)
+
+Plz see code https://codepair.hackerrank.com/paper/UfpF3Cvb?b=eyJyb2xlIjoiY2FuZGlkYXRlIiwibmFtZSI6ImltX2hhY2tlciIsImVtYWlsIjoiYmFydW5rdW1hcjk0OTVAaG90bWFpbC5jb20ifQ%3D%3D
+
+Plz see editorial  https://www.hackerrank.com/challenges/volleyball-match/editorial
+
+At this link we can find code with explanation https://codepair.hackerrank.com/paper/w1eGNtGh?b=eyJyb2xlIjoiY2FuZGlkYXRlIiwibmFtZSI6ImltX2hhY2tlciIsImVtYWlsIjoiYmFydW5rdW1hcjk0OTVAaG90bWFpbC5jb20ifQ%3D%3D
+
+THE WHITE LOTUS AND CATREPILLAR GAME
+Editorial https://www.hackerrank.com/challenges/the-white-lotus-and-caterpillar-game/editorial
+Solution https://www.hackerrank.com/challenges/the-white-lotus-and-caterpillar-game/submissions/code/12466070 
+
+
+VERTICAL STICKS
+
+https://www.hackerrank.com/challenges/vertical-sticks
+
+code link
+
+https://codepair.hackerrank.com/paper/l2R5Ccu2?b=eyJyb2xlIjoiY2FuZGlkYXRlIiwibmFtZSI6ImltX2hhY2tlciIsImVtYWlsIjoiYmFydW5rdW1hcjk0OTVAaG90bWFpbC5jb20ifQ%3D%3D
+
+Manasa Loves math
+NUMBER DIVISIBILITY BY 8(https://www.hackerrank.com/challenges/manasa-loves-maths)
+See the below code  https://codepair.hackerrank.com/paper/kCXvAFso?b=eyJyb2xlIjoiY2FuZGlkYXRlIiwibmFtZSI6ImltX2hhY2tlciIsImVtYWlsIjoiYmFydW5rdW1hcjk0OTVAaG90bWFpbC5jb20ifQ%3D%3D
+Here we are taking each number one by one (first 0,2,4,6,8   and then 1,3,5,7) and then consider all other number combination which is possible
+EDITORIAL explantion is also good and make sense.incase if above link doesnot open, then go with editorial explanation
+
+
+ANGRY CHILDREN 2
+Editorial:  https://www.hackerrank.com/challenges/angry-children-2/editorial
+
+Understand by taking example of 1 2 3 4 5 6 7, here consecutive elements we have to take,D increases by “some value ” if we include next element.
+More over,if we include next element, we have to remove previous element and also its contribution in D.Dont worry,if u did not get since it is only a rough estimate.
+Interval Selection 
+Problem statement is like this : Assume that there is a line with points. Every interval denotes the start and end of a line segment between X and Y. This means all the points between X and Y will also be captured. Consider a set containing such "intervals", such that no three intervals share a common point. It is okay if 2 intervals share a common point. You need to find the largest such set.
+https://www.hackerrank.com/challenges/interval-selection/leaderboard
+POLYGON (I have neither understood its logic nor code but understand the problem)
+Here we have to find number of ways in which K non-interesting diagonals can be made in a N-sided polygon.
+https://www.hackerrank.com/challenges/polygons
+COLORFUL  POLYGON(I have understood its little bit of logic)
+Editorial:: https://www.hackerrank.com/challenges/colorful-polygon/editorial
+It is based on:  Dynamic programming, two pointers, probability theory
+Its explanation as seen in editorial
+Firstly let's have try to solve the problem on the line (that is not closed polygon): For each position `i` calculate the value `rgi` `−` the last index such that subsegment of the line `[i…rgi]` do not contain equal-colored vertices. This calculation can be done with use of two pointers and std::set.  After we've calculated all `rgi`, run dynamic programming `di`. Value `di` denotes the number of valid subsets if the last choosen vertex is the `i`-th one. Relaxation step: `dj=dj+di`, for all `j` `(i<j≤rgi+1)`. To calculate `di` fast we can use segment tree or fenwick tree (look into the code for details).
+
+TWO-POINTER algorithm
+It's kind of optimization. Consider problem 190D - Non-Secret Cypher. The stupid solution goes over all subarrays and checks whether it's good or not. Now we notice that if subarray is 'good', then all its superarrays is 'good' too. Let's go over all left borders x (1 ≤ x ≤ N) and for each of them find rx. rx is a minimal number such that subarray x... rx is good. Obviously, all subarrays which starts at x and ends after rx is good.
+If you notice that r1 ≤ r2 ≤ ... ≤ rN, you can use 'two pointers' method. The first pointer is x and the second one is rx. When you move the first one right, the second one can only move right too. No matter how many operations you perform in one step, algo's running time is O(n), because each of pointers makes  ≤ N steps.
+The other examples of two pointers is Z-function, prefix-function (the last one is not so straight). Also you can take a look at problem 'Pyramid base' from IOI'08 (statement). Last subtask can solved using this idea.
+
+Difference between KRUSKAL & PRIM
+Both algorithm are used to find minimum spanning tree
+The basic difference is in which edge you choose to add next to the spanning tree in each step.
+
+In Prim's, you always keep a connected component, starting with a single vertex. You look at all edges from the current component to other vertices and find the smallest among them. You then add the neighbouring vertex to the component, increasing its size by 1. In N-1 steps, every vertex would be merged to the current one if we have a connected graph.
+
+In Kruskal's, you do not keep one connected component but a forest. At each stage, you look at the globally smallest edge that does not create a cycle in the current forest. Such an edge has to necessarily merge two trees in the current forest into one. Since you start with N single-vertex trees, in N-1 steps, they would all have merged into one if the graph was connected.
+WHEN to use each of these ALGORITHM
+Use Prim's algorithm when you have a graph with lots of edges.
+For a graph with V vertices E edges, Kruskal's algorithm runs in O(E log V) time and Prim's algorithm can run in O(E + V log V) amortized time, if you use a Fibonacci Heap.
+Prim's algorithm is significantly faster in the limit when you've got a really dense graph with many more edges than vertices. Kruskal performs better in typical situations (sparse graphs) because it uses simpler data structures.
+
+CIRCLE CITY
+https://www.hackerrank.com/challenges/circle-city
+//here simple logic is applied
+        //eqn of corcle(x-a)^2+(y-b)^2=radius^2 which here reduce to x^2+y^2=radius^2
+        //thus first find y suare and then compare as shown in my code submisiion
+SPHERE INTERSECTION WITH GIVEN ACCLERATION
+Here they have used some formula which I am not getting as seen in the code
+Problem: https://www.hackerrank.com/challenges/spheres
+Solution: https://codepair.hackerrank.com/paper/0H6fu6W3?b=eyJyb2xlIjoiY2FuZGlkYXRlIiwibmFtZSI6ImltX2hhY2tlciIsImVtYWlsIjoiYmFydW5rdW1hcjk0OTVAaG90bWFpbC5jb20ifQ%3D%3D
+MEETING POINT (finding common place of meeting)
+Link: https://www.hackerrank.com/challenges/meeting-point
+Here many points are given and we have to find common place of meeting which could be any of the co-ordinates given
+STEPS: // Calculating centroidCalculating actual house that has minimum distance from every other houseCalculating the total number of steps
+
+Please fine the code : https://www.hackerrank.com/challenges/meeting-point/forum
+public static void main(String[] args) {
+
+    Scanner sc=new Scanner(System.in);
+    Integer numberOfPoints=Integer.parseInt(sc.nextLine().trim());
+    String[] xyCoordinates=new String[2];
+    ArrayList<Point> pointsList=new ArrayList<Point>();
+    Long sumOfCoordinateX=0L;
+    Long sumOfCoordinateY=0L;
+    for(int i=0;i<numberOfPoints;i++)
+    {
+        xyCoordinates=sc.nextLine().trim().split(" ");
+        Point p1=new Point();
+        p1.x=Long.parseLong(xyCoordinates[0]);
+        p1.y=Long.parseLong(xyCoordinates[1]);
+        sumOfCoordinateX+=p1.x;
+        sumOfCoordinateY+=p1.y;
+        pointsList.add(p1);
+    }
+
+    // Calculating centroid
+    Long centroidCoordinateX=sumOfCoordinateX/numberOfPoints;
+    Long centroidCoordinateY=sumOfCoordinateY/numberOfPoints;
+    Long minStepsBetweenCentroidAndHouses=Long.MAX_VALUE;
+    Long currentNumberOfStepsBetweenCentroidAndHouse=Long.MAX_VALUE;
+    Point houseCoordinate=null;
+
+    // Calculating actual house that has minimum distance from every other house
+    for(int i=0;i<pointsList.size();i++)
+    {
+        Point currentHouse=pointsList.get(i);
+        currentNumberOfStepsBetweenCentroidAndHouse=Math.max(Math.abs(centroidCoordinateX-currentHouse.x), Math.abs(centroidCoordinateY-currentHouse.y));
+        if(currentNumberOfStepsBetweenCentroidAndHouse<minStepsBetweenCentroidAndHouses)
+        {
+            minStepsBetweenCentroidAndHouses=currentNumberOfStepsBetweenCentroidAndHouse;
+            houseCoordinate=currentHouse;
+        }
+    }
+
+    // Calculating the total number of steps
+    Long totalSteps=0L;
+    for(int i=0;i<pointsList.size();i++)
+    {
+        Point currentHouse=pointsList.get(i);
+        totalSteps+=Math.max(Math.abs(houseCoordinate.x-currentHouse.x), Math.abs(houseCoordinate.y-currentHouse.y));
+    }
+    System.out.println(totalSteps);
+}
+}
+class Point{
+public Long x;
+public Long y;
+}
+RANDOM INTEGER RANDOM BITS
+Link: https://www.hackerrank.com/challenges/rirb
+Here they have derived the final results from the actual expression
+ 
+Editorial: https://www.hackerrank.com/challenges/rirb/editorial
+EQUAL(Greedy and Coin-Change algorithm)
+Problem: https://www.hackerrank.com/challenges/equal
+In the below editorial explanation, we will used below expression from the coin-change algorithm
+ 
+Editorial: https://www.hackerrank.com/challenges/equal/editorial
+Explanation: take the given input i.e. 1   4     A[] = { 2, 2, 3, 7}
+Now as per editorial & above formula, min of(2,2,3,7) is 2  so for each A[i] we have following
+A[0] i.e. 2   x=(A[0]-min)=(2-2)=0 so k= 0/5+(0%5)/2+((0%5)%2)/1  = 0
+A[1] i.e. 2   x=(A[1]-min)=(2-2)=0 so k= 0/5+(0%5)/2+((0%5)%2)/1  = 0
+A[2] i.e. 3   x=(A[2]-min)=(3-2)=1 so k= 1/5+(1%5)/2+((1%5)%2)/1  = 1
+A[0] i.e. 7   x=(A[3]-min)=(7-2)=5 so k= 5/5+(5%5)/2+((5%5)%2)/1  = 1
+Hence sum of x is 2 which is ANSWER
+Further they have said it may happens sometime that min of given array may not give answer so that why they have also considered min-1,min-2,min-3,min-4,min-5 as given in the iteration loop in editorial code and finally we will choose minimum as given in editorial code.
+GAME THEORY (Refer Wikipedia for more info)
+The games studied in game theory are well-defined mathematical objects. To be fully defined, a game must specify the following elements: the players of the game, the information and actions available to each player at each decision point, and the payoffs for each outcome.
+CHOCLATES IN A BOX (Game Theory)
+Link & Editorial: https://www.hackerrank.com/challenges/chocolate-in-box/editorial
+
+VERTICAL ROOKS(Game Theory)
+Please observe that in most of the game theory problems we apply XOR operation
+Link : https://www.hackerrank.com/challenges/vertical-rooks
+Editorial: https://www.hackerrank.com/challenges/vertical-rooks/editorial
+
+Kth ANCESTOR(Graph and Binary)
+ 
+JUST FOR UNDERSTANDING
+In above,suppose k is 3 then k=011 i.e b0=1,b1=1,b2=0 and thus
+K=b0+b1*2^1+b2*2^2
+Or if b0 is 0 then K=2^p1+2^p2 here p1=1 and p2=2
+Editorial: https://www.hackerrank.com/challenges/kth-ancestor/editorial
+Calculating number of paths through a rectangular/squre grid from bottam to top with only 2 movement i.e. up or right(HACKEREARTH Problem)
+Link: http://betterexplained.com/articles/navigate-a-grid-using-combinations-and-permutations/
+Use second approach:combinatorial one
+
+PAIRWISE SUM  & DIVIDE
+Link: https://www.hackerrank.com/challenges/pairwise-sum-and-divide
+Editorial: https://www.hackerrank.com/challenges/pairwise-sum-and-divide/editorial
+ 
+DIFFERENCE & PRODUCT
+Link: https://www.hackerrank.com/challenges/difference-and-product
+Editorial: https://www.hackerrank.com/challenges/difference-and-product/editorial
+Just see the range of integers under which we have to find the P&D
+EASY SUM
+Link: https://www.hackerrank.com/challenges/easy-sum
+In editorial, its actually the formula for calculation continuous sum so learn it by heart
+Editoraial: https://www.hackerrank.com/challenges/easy-sum/editorial
+NCR(Combinations) ss
+Here, we have to look for time efficiency that’s y I have taken this problem
+Link: https://www.hackerrank.com/challenges/ncr-table 
+
+CONNECT THE COUNTRY(Probability)
+Link: https://www.hackerrank.com/challenges/connect-the-country
+Consecutive Subsequences (Combinations)
+Link: https://www.hackerrank.com/challenges/consecutive-subsequences
+Editorial: https://www.hackerrank.com/challenges/consecutive-subsequences/editorial
+Here in the below explanation,we two sum series at the bottam sum[]={0 1 3 4 6 7 9} and sum[]={0 1 1 0 0 1 1} ,now in the explanation it is trrying to say that we have to choose either consecutive 0’s or 1’s which is 3 so 3 is the answer.(0 & 1 is not compulsory ,any number can come)
+ 
+Lexicographic paths(Combinations)
+Link: https://www.hackerrank.com/challenges/lexicographic-steps
+Editorial: https://www.hackerrank.com/challenges/lexicographic-steps/editorial
+Here understand the editorial by the below example, if u see the editoraial then it is very-2 easy to solve the problem with below example 
+
+Playing with Numbers(Simple & Easy but solution is coming timeout so see its editorial)
+Link: https://www.hackerrank.com/challenges/playing-with-numbers
+
+STRING SIMILARITY
+Link: https://www.hackerrank.com/challenges/string-similarity
+ 
+It can simply be solve by Z-algorithm(http://codeforces.com/blog/entry/3107)
+
+MATRIX TRACING
+Link: https://www.hackerrank.com/challenges/matrix-tracing
+Editorial: https://www.hackerrank.com/challenges/matrix-tracing/editorial
+Understand by below stuffs: So given m,n in total we have m-1 RIGHT moves and n-1 DOWN moves. And imagine we auto-move RIGHT and just have to choose when to move DOWN. So from m+n-2 total moves we choose m-1 down moves. Hence total ways comes out to be m+n-2Cm-1. Another way to look at is m+n-2 total moves where m-1 are of one type and n-1 are of another type Hence total number of move is: (m+n-2)!/(m-1)!(n-1)!
+JUST see how to calculate factorial of large numbers as long(data type) can only hold a max of 20!
+E;g: m=2 and n=3 so we have ans as 3 ways
+COUNT FOX SEQUENCES(Combination ---Derivative based )
+Link: https://www.hackerrank.com/challenges/count-fox-sequences
+Editorial: https://www.hackerrank.com/challenges/count-fox-sequences/editorial
+Related problem:Sweets problems|Code chef
+https://www.codechef.com/IOPC2014/problems/IOPC14L
+THE INDIAN JOB(Dynamic prmng)
+Link: https://www.hackerrank.com/challenges/the-indian-job
+Here the condition which they have come-up with can be justified with subset sum problem dym prmng
+Editorial: https://www.hackerrank.com/challenges/the-indian-job/editorial
+CIPHER(Bit Manipulation)
+Link: https://www.hackerrank.com/challenges/cipher
+Understand the editorial logic
+Editorial: https://www.hackerrank.com/challenges/cipher/editorial
+PERMUTATION PROBLEM(COMBINATORICS)
+Link: https://www.hackerrank.com/challenges/permutation-problem
+Editorial: https://www.hackerrank.com/challenges/permutation-problem/editorial
+WET SHARK AND TWO SUBSEQUENCES 
+Link: https://www.hackerrank.com/challenges/wet-shark-and-two-subsequences
+Here, editorial is not given and also I tried some solutions to understand but I was not able to understand
+JIM BEAM(GEOMETRY)
+Link: https://www.hackerrank.com/challenges/jim-beam/forum
+Here, they are saying if line intersects then NO and vice-versa which is creating doubt for me since if mirror comes early and line comes next then the above condition doesnot hold true.e.g:0,2,2,2,1,1  the points are given as detailed in the input format in question.
+Line2D API
+Veru useful for dealing with geometry based questions.  Just import
+import java.awt.Point;
+import java.awt.geom.Line2D;
+Details: https://docs.oracle.com/javase/7/docs/api/java/awt/geom/Line2D.html
+SWAPS PERMUTATION
+Link: https://www.hackerrank.com/challenges/swappermutation
+Editorial: https://www.hackerrank.com/challenges/swappermutation/editorial
+SALARY BLUES
+Link: https://www.hackerrank.com/challenges/salary-blues
+Editorial: https://www.hackerrank.com/challenges/salary-blues/editorial
+Here, just calculate the GCD to getting desired answer, I have verified it with following examples:A={3,6,9,12,}, A={3,5,6},A={3,5,12,20}  etc
+ 
+Also see, way to calculate gcd(a1,a2,a3,a4…an)
+         That is take two numbers one by one and calculate the GCD
+COIN ON THE TABLE
+Link: https://www.hackerrank.com/challenges/coin-on-the-table/editorial
+Editorial: https://www.hackerrank.com/challenges/coin-on-the-table/editorial
+CUT TREE
+Link: https://www.hackerrank.com/challenges/cuttree
+Editorial: https://www.hackerrank.com/challenges/cuttree
+BITWISE AND and LOGICAL AND
+   
+
+AND PRODUCT
+Link: https://www.hackerrank.com/challenges/and-product
+Editorial: https://www.hackerrank.com/challenges/and-product/editorial
+ULTIMATELY we are Calculating AND operation like this 
+ for (long j = newA; j <= newB; j++) {
+	                ret = ret & j;
+Accepted code: https://codepair.hackerrank.com/paper/Mlz1HlNI?b=eyJyb2xlIjoiY2FuZGlkYXRlIiwibmFtZSI6ImltX2hhY2tlciIsImVtYWlsIjoiYmFydW5rdW1hcjk0OTVAaG90bWFpbC5jb20ifQ%3D%3D
+EGG-DROPPING PUZZLE
+Link: http://www.geeksforgeeks.org/dynamic-programming-set-11-egg-dropping-puzzle/
+Analysis of algorithm
+in Asymptotic analysis, we always talk about input sizes larger than a constant value
+1)	Θ Notation: The theta notation bounds a functions from above and below, so it defines exact asymptotic behavior.
+2)	2) Big O Notation: The Big O notation defines an upper bound of an algorithm, it bounds a function only from above.
+3)	Ω Notation: Just as Big O notation provides an asymptotic upper bound on a function, Ω notation provides an asymptotic lower bound.
+Analysis of Loops:
+O(1)----O(n)-- O(nc)-- O(Logn)--- O(LogLogn)
+Solving Recurrences:
+Substitution Method -Recurrence Method--Master Method
+Amortized Analysis : is used for algorithms where an occasional operation is very slow, but most of the other operations are faster
+What does ‘Space Complexity’ mean?
+Space Complexity:
+The term Space Complexity is misused for Auxiliary Space at many places. Following are the correct definitions of Auxiliary Space and Space Complexity.
+Auxiliary Space is the extra space or temporary space used by an algorithm.
+Space Complexity of an algorithm is total space taken by the algorithm with respect to the input size. Space complexity includes both Auxiliary space and space used by input.
+EDIT DISTANCE
+Link: http://www.geeksforgeeks.org/dynamic-programming-set-5-edit-distance/
+Here for insert operation I.e. editDist(str1,  str2, m, n-1), notice that m did not get reduced but n get reduced bcz if originally we have m=4 & n=5 so we are incrementing m by 1 and thus we will now we compairing first 4 characters i.e. m & n-1 ignoring fifth character from both string since they have become equal
+Dynamic Programming Sub-Set Problem
+Link: http://www.geeksforgeeks.org/dynamic-programming-subset-sum-problem/
+
+
+VMWARE---VISA INC---ARISTA-----PRACTO-----FIDILITY----ROVI----HACKERRANK---TOWERCAPITAL REASEARCH----TIME----AMAZON
+Dynamic Programming Coin Change Problem
+Link: http://www.geeksforgeeks.org/dynamic-programming-set-7-coin-change/
+Multiply two integers without using multiplication, division and bitwise operators, and no loops
+Link: http://www.geeksforgeeks.org/multiply-two-numbers-without-using-multiply-division-bitwise-operators-and-no-loops/
+Backtracking | Set 2 (Rat in a Maze)
+Link: http://www.geeksforgeeks.org/backttracking-set-2-rat-in-a-maze/
+Description:
+A Maze is given as N*N binary matrix of blocks where source block is the upper left most block i.e., maze[0][0] and destination block is lower rightmost block i.e., maze[N-1][N-1]. A rat starts from source and has to reach destination. The rat can move only in two directions: forward and down.
+Largest Sum Contiguous Subarray
+Link: http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
+Here we find maximum contigious subarray sum
+Dynamic Programming | Set 27 (Maximum sum rectangle in a 2D matrix)
+Nice problem, see how conditions they are checking, in comp prgrmng u also have to do coding like this
+Link: http://www.geeksforgeeks.org/dynamic-programming-set-27-max-sum-rectangle-in-a-2d-matrix/
+PASCAL TRIANGLE
+Link: http://www.geeksforgeeks.org/pascal-triangle/
+ICHIGO CUBES(no need to understand,just remember for cmptve coding)
+Link: https://www.hackerrank.com/challenges/ichigo-and-cubes
+Editorial: https://www.hackerrank.com/challenges/ichigo-and-cubes/editorial
+K Center Problem(N-P hard order problm,rmbr fr cmptv cdng)
+Link: http://www.geeksforgeeks.org/k-centers-problem-set-1-greedy-approximate-algorithm/
+MIN COST PATH
+ 
+It can be done like this:from each cell we have three choices to make i.e m[i+1][j],m[i][j+1],m[i+1][j+1] so we will find min(m[i+1][j],m[i][j+1],m[i+1][j+1]) (NOTE: at the same time we will also take care that index of these three cell remain within boundary)and so it will continue until we reach target
+Alternate Soltn: www.geeksforgeeks.org/dynamic-programming-set-6-min-cost-path/
+ROD CUTTING PROBLEM
+Link: http://www.geeksforgeeks.org/dynamic-programming-set-13-cutting-a-rod/
+Alternate Link: http://algorithms.tutorialhorizon.com/dynamic-programming-rod-cutting-problem/
+Minimum Numbers are Required Whose Square Sum is Equal To a Given Number
+Link: http://algorithms.tutorialhorizon.com/dynamic-programming-minimum-numbers-are-required-whose-square-sum-is-equal-to-a-given-number/
+find number of submatrix equal to sum
+I just came around this question in a programming contest and was unable to solve it within required time constraints.So just curious to get the right approach.Any suggestions would be helpful.
+Input Given a matix a[] with n elements where n<1000. an integer k where k<10^9
+Construct a new matrix b where b[i][j]=a[i]*a[j].
+Output Number of possible submatrix with sum k.
+Test case
+a[]={1,-1}
+k=0   output 5
+Link: http://stackoverflow.com/questions/28403614/number-of-submatrix-with-sum-k
+ 
+ 
+DIE HARD 3
+Link: https://www.hackerrank.com/challenges/die-hard-3
+Editorial: https://www.hackerrank.com/challenges/die-hard-3/editorial
+
+oCandies
+Link: https://www.hackerrank.com/challenges/candies
+Here in the code we are running 2 for loops. One for increasing order of elements and other for decreasing order of elements
+Code Link: https://codepair.hackerrank.com/paper/KaduI1rh?b=eyJyb2xlIjoiY2FuZGlkYXRlIiwibmFtZSI6ImltX2hhY2tlciIsImVtYWlsIjoiYmFydW5rdW1hcjk0OTVAaG90bWFpbC5jb20ifQ%3D%3D
+Ants
+Link: https://www.hackerrank.com/challenges/ants
+Print All pairs of Anagrams in a given String Array
+Link: http://geeksquiz.com/print-pairs-anagrams-given-array-strings/
+Optimizations:
+We can optimize the above solution using following approaches.
+1) Using sorting: We can sort array of strings so that all anagrams come together. Then print all anagrams by linearly traversing the sorted array. The time complexity of this solution is O(mnLogn) (We would be doing O(nLogn) comparisons in sorting and a comparison would take O(m) time)
+Snake & Ladder Problem
+Link: http://www.geeksforgeeks.org/snake-ladder-problem-2/
+Minimum number of jumps to reach end
+Link: http://www.geeksforgeeks.org/minimum-number-of-jumps-to-reach-end-of-a-given-array/
+Word Wrap Problem
+Link: http://www.geeksforgeeks.org/dynamic-programming-set-18-word-wrap/
+Longest Even Length Substring such that Sum of First and Second Half is same
+Link: http://www.geeksforgeeks.org/longest-even-length-substring-sum-first-second-half/
+The Full Counting Sort
+Link: https://www.hackerrank.com/challenges/countingsort4
+GOLDEN RULE FOR STRING PROBLEM
+•	StringBuilder, don't underestimate how important it is when working with Strings
+•	Console.WriteLine inside the loop, and this is VERY slow, specially for 1M entries. So, I used a StringBuilder and printed everything in the end. I went from more than 3s to 0.89s. The problem is not always with your algorithm, but it may be with the way your are printing.
+Connected cell in a graph
+Link: https://www.hackerrank.com/challenges/connected-cell-in-a-grid
+The above problem is so simple when we look from DFS view.
+Sansa and XOR(Bit Manipulation)
+Link: https://www.hackerrank.com/challenges/sansa-and-xor
+It is based on the property of XOR operator that XOR operation has the Associative & Communicative property which makes problem very simpler
+Extremum Permutations
+Link: https://www.hackerrank.com/challenges/extremum-permutations
+Not able to understand the example hence not able to proceed further
+Print all possible strings that can be made by placing spaces
+Link: http://www.geeksforgeeks.org/print-possible-strings-can-made-placing-spaces/
+By using recursion ,it has become so simple
+Cutting boards
+Link: https://www.hackerrank.com/challenges/board-cutting
+Mr K marsh
+Link: https://www.hackerrank.com/challenges/mr-k-marsh/editorial
+It seems to be simple but it’s a trickey one, Actually, it can be done in easily O(rows^4 or colums^4) but to do it in O(n^3) see it’s editorial
+Editorial: https://www.hackerrank.com/challenges/mr-k-marsh/editorial
+Tug Of War(Based on recursion/backtracking)
+Link: http://www.geeksforgeeks.org/fundamentals-of-algorithms/
+Stock maximize
+Link: https://www.hackerrank.com/challenges/stockmax
+Left Shifting as a quick way to multiply by  2
+ 
+Reading a binary input in Java
+Take the input as a string and then convert them to binary
+Count ways to reach the n’th stair
+Link: http://www.geeksforgeeks.org/count-ways-reach-nth-stair/
+Lego Blocks
+Link: https://www.hackerrank.com/challenges/lego-blocks/editorial
+Explanation: here bloacks are given as(1*1*1,1*1*2,1*1*3,1*1*4) so here plz consider 1,2,3,4 as the width not height then only problem can be solved and thus width can be increased horizontally in terms of 1,2,3,4 but height will always be increased in terms of 1
+Explanation: 
+For the first case, we can have
+•	two (1 * 1 * 2) lego blocks stacked one on top of another. 
+•	one (1 * 1 * 2) block stacked on top of two (1 * 1 * 1) blocks. 
+•	two (1 * 1 * 1) blocks stacked on top of one (1 * 1 * 2) block. 
+ Below one we will not be considering since it can be cut without cutting any of the lego blocks
+Two(1*1*1) blocks stacked on top of two(1*1*1) block
+  this summation part is actually removing invalid solid structures
+Candles Counting
+Link: https://www.hackerrank.com/challenges/candles-2/editorial
+Its difficult but from here u can get a idea of finding strictly increasing subsequence
+The main idea is dynamic programming. Let's ignore the colors first and solve the problem of counting the number of strictly increasing subsequences. 
+Introduce the recurrence `f(n)=f(n)=` number of strictly increasing subsequences ending at candle `nn`. How do we find out `f(n)f(n)`? One strictly increasing subsequence ending at `nn` can be made by picking candle `nn` alone. So we know `f(n)≥1f(n)≥1` now. Next, we can combine candle `nn` with other subsequences ending at `i<ni<n`. To make the combining possible the candle `ii` must have a height less than candle `nn`. Therefore the number of such combinations is equal to `∑f(i)∑f(i)` for all `1≤i<n1≤i<n` and `hi<hnhi<hn`. Stop and think why. Thus `f(n)=1+∑f(i)f(n)=1+∑f(i)` for all `1≤i<n1≤i<n` and `hi<hnhi<hn`. 
+Choose and Calculate
+Link: https://www.hackerrank.com/challenges/choose-and-calculate
+Editorial: https://www.hackerrank.com/challenges/choose-and-calculate/editorial
+Good question,I spent around 1-2 hours and got the basic logic and then I read the editorial and thus easily I understood the editorial
+Polar Angles
+Link: https://www.hackerrank.com/challenges/polar-angles
+Polar angle concept (also, see at the top of this document, we have wrote how to calculate polar angle)
+ 
+Note: You don't need to calculate the polar angle to sort by it. Since trig functions are monotonic (always increasing or always decreasing) within a quadrant, just sort by the function itself
+Link: http://stackoverflow.com/questions/16509100/sorting-points-by-their-polar-angle-java
+How to check if 2 lines intersect or not
+Link: http://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/
+Just understand the orientation concept from the below link: http://www.geeksforgeeks.org/orientation-3-ordered-points/
+Power of large numbers
+Link: https://www.hackerrank.com/challenges/power-of-large-numbers
+It has made use of Fermat's Little Theorem, Fast Modulo Exponentiation, Large digits Arithmetic using arrays but it is very easy 
+Through the above theorm, large number can be reduced to small numbers for e.g.
+A=34534985349875439875439875349875 B=93475349759384754395743975349573495
+Reduced to A=66520193   & B=122285375
+How to Check if given point lies inside or outside of polygon
+Link: http://www.geeksforgeeks.org/how-to-check-if-a-given-point-lies-inside-a-polygon/
+Special case: for point lying on exactly one of the vertices like g in below figure, we check whether ‘p’ is colinear with vertices of current line of polygon. If it is coliear, then we check if the point ‘p’ lies on current side of polygon, if it lies, we return true, else false.  
+Convex Hull
+Link: http://www.geeksforgeeks.org/convex-hull-set-1-jarviss-algorithm-or-wrapping/
+Just understand the idea
+Given n line segments, find if any two segments intersect
+Link: http://www.geeksforgeeks.org/given-a-set-of-line-segments-find-if-any-two-segments-intersect/
+I didn’t understand it, need to understand
+Mansa and Combinatorics
+I have not tried it, just for comp I have written here
+Link: https://www.hackerrank.com/challenges/manasa-and-combinatorics
+Mehta and his laziness
+Here, observe that fastest method to calculate all divisiors of number : Sieve_of_Eratosthenes is (https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes).
+Link: https://www.hackerrank.com/challenges/mehta-and-his-laziness
+Equations
+Here, the problem is  to solve I,e, number of solution      
+Link: https://www.hackerrank.com/challenges/equations
+Help link: http://stackoverflow.com/questions/9469898/1-x-1-y-1-nfactorial
+1) You don't really need to compute (N!)^2 to find its prime factors. Why? Say you find the prime factorization of N! as (p1^k1) x (p2^k2) .... (pi^ki) where pj's are primes and kj's are exponents. 
+Now the number of factors of N! is as obvious as (k1 + 1) x (k2 + 1) x ... x (ki + 1).
+2) For (N!)^2, the above expression would be, (2*k1 + 1) * (2*k2 + 1) * .... * (2*k1 + 1) which is essentially what we are looking for.
+For example, lets take N=4, N! = 24 and (N!)^2 = 576; 24 = 2^3 * 3^1; Hence no of factors = (3+1) * (1+1) = 8, viz {1,2,3,4,6,8,12,24} For 576 = 2^6 * 3^2, it is (2*3 + 1) * (2*1 + 1) = 21;
+4)	Basically you need to find the multiplicity of each primes <= N here.
+A Chlocate-Fiesta
+Link: https://www.hackerrank.com/challenges/a-chocolate-fiesta 
+FUNNY STRING problem (DONE!!!!)
+Selection Sort
+http://geeksquiz.com/selection-sort/
+Bubble Sort
+http://geeksquiz.com/bubble-sort/
+Insertion sort
+geeksquiz.com/insertion-sort/
+find closet pairs from two sorted arrays
+http://www.geeksforgeeks.org/given-two-sorted-arrays-number-x-find-pair-whose-sum-closest-x/
+
+
+
+
+
+
+
+
+
+
+
+
+
+UNIVERSAL CONCEPTS
+•	For reducing very large number to equivalent small number use Fast Modulo Exponentiation
+Eg: Link: https://www.hackerrank.com/challenges/power-of-large-numbers
+
+•	To convert character to numberic use  Character.getNumricvalue(char)
+•	To find all divisiors of a number use : : Sieve_of_Eratosthenes is (https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes).
+•	Suppose we need to convert 550/880 in simplest forms i.e. 5/8 then use below formula
+ Link: : https://www.hackerrank.com/challenges/mehta-and-his-laziness && https://www.hackerrank.com/rest/contests/infinitum-sep14/challenges/mehta-and-his-laziness/hackers/saviour/download_solution
+•	Function to generate prime factors of a number: http://www.geeksforgeeks.org/print-all-prime-factors-of-a-given-number/
+
+Calculating power of large numbers(BigInteger Concept)
+Link details: https://codepair.hackerrank.com/paper/doGDkfWO?b=eyJyb2xlIjoiY2FuZGlkYXRlIiwibmFtZSI6ImltX2hhY2tlciIsImVtYWlsIjoiYmFydW5rdW1hcjk0OTVAaG90bWFpbC5jb20ifQ%3D%3D
+
+HERE WE are calculating ((2^n)-1)%1000000007
+if (even == n) {
+            return new BigInteger("2").pow(n).add(new BigInteger("-1")).remainder(new BigInteger("1000000007"));
+        }
+        else {
+            return new BigInteger("2").pow(n-1).add(new BigInteger("-1")).remainder(new BigInteger("1000000007"));
+        }
+Go through all Sorting Algorthm….. like bubble sort, insertion sort etc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 		   		
+
+
+
+
+
+   		   		
+   		 
